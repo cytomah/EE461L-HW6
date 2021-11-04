@@ -1,9 +1,7 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 from flask_restful import Api, Resource, reqparse
 #from flask_cors import CORS #comment this on deployment
-from api.HelloApiHandler import HelloApiHandler
 import os
-from app import app
  
 app = Flask(__name__, static_url_path='/', static_folder='frontend/build')
 #CORS(app) #comment this on deployment
@@ -21,8 +19,9 @@ def index():
     return app.send_static_file('index.html')
  
 @app.route("/flask/<name>")
-def lastname(name):
+def lastname(name=None):
+    print(name)
     if(name == 'Christian'):
-        return {"result": "Tomah"}
+        return jsonify({"result": "Tomah"})
     else:
-        return {"result": "User Not Found"}
+        return jsonify({"result": "User Not Found"})

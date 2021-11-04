@@ -13,7 +13,7 @@ class Content extends React.Component{
         this.setState({value:event.target.value});
     }
     handleSubmit(event){
-        axios.get('/${this.state.value}').then(response =>{this.setState({nameValue: response.data.result})}).catch(error => {
+        axios.get('http://localhost:5000/flask/' + this.state.value).then(response =>{this.setState({nameValue: response.data.result})}).catch(error => {
             console.log(error)
         })
  

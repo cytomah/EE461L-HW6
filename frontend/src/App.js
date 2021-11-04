@@ -20,7 +20,6 @@ function App() {
     <h3>
       Last Name Finder
     </h3>
-    <div>{getLastName.status === 200 ? <h3>{getLastName.data.message}</h3>: <h3>Switch</h3>}</div>
     <Content/>
     </div>
   );
